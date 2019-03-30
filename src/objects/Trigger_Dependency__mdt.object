@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Class_Name__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Class Name</label>
+        <length>50</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Debug_Log_Level__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Debug Log Level</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>None</fullName>
+                    <default>true</default>
+                    <label>None</label>
+                </value>
+                <value>
+                    <fullName>Track Worker Execution</fullName>
+                    <default>false</default>
+                    <label>Track Worker Execution</label>
+                </value>
+                <value>
+                    <fullName>Track Worker Event Execution</fullName>
+                    <default>false</default>
+                    <label>Track Worker Event Execution</label>
+                </value>
+                <value>
+                    <fullName>Log Execution Context</fullName>
+                    <default>false</default>
+                    <label>Log Execution Context</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Is_Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Determines if the trigger worker will be executed.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Is Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Object_Name__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Object Name</label>
+        <referenceTo>EntityDefinition</referenceTo>
+        <relationshipLabel>Trigger_Dependency</relationshipLabel>
+        <relationshipName>Trigger_Dependency</relationshipName>
+        <required>true</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Worker_Description__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Briefly describe the functionality of the worker class</inlineHelpText>
+        <label>Worker Description</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <label>Trigger Dependency</label>
+    <pluralLabel>Trigger Dependency</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>
