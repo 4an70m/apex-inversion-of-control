@@ -45,6 +45,19 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Execution_Order__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Defines the order of workers execution. Default is 0, which is undefined order.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Execution Order</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Is_Active__c</fullName>
         <defaultValue>true</defaultValue>
         <description>Determines if the trigger worker will be executed.</description>
