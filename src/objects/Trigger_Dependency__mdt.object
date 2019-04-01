@@ -22,22 +22,22 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>None</fullName>
+                    <fullName>0</fullName>
                     <default>true</default>
                     <label>None</label>
                 </value>
                 <value>
-                    <fullName>Track Worker Execution</fullName>
+                    <fullName>1</fullName>
                     <default>false</default>
                     <label>Track Worker Execution</label>
                 </value>
                 <value>
-                    <fullName>Track Worker Event Execution</fullName>
+                    <fullName>2</fullName>
                     <default>false</default>
                     <label>Track Worker Event Execution</label>
                 </value>
                 <value>
-                    <fullName>Log Execution Context</fullName>
+                    <fullName>3</fullName>
                     <default>false</default>
                     <label>Log Execution Context</label>
                 </value>
