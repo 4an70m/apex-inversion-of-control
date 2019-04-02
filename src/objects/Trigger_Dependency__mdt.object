@@ -11,40 +11,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Debug_Log_Level__c</fullName>
-        <externalId>false</externalId>
-        <fieldManageability>DeveloperControlled</fieldManageability>
-        <label>Debug Log Level</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>0</fullName>
-                    <default>true</default>
-                    <label>None</label>
-                </value>
-                <value>
-                    <fullName>1</fullName>
-                    <default>false</default>
-                    <label>Track Worker Execution</label>
-                </value>
-                <value>
-                    <fullName>2</fullName>
-                    <default>false</default>
-                    <label>Track Worker Event Execution</label>
-                </value>
-                <value>
-                    <fullName>3</fullName>
-                    <default>false</default>
-                    <label>Log Execution Context</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Execution_Order__c</fullName>
         <defaultValue>0</defaultValue>
         <description>Defines the order of workers execution. Default is 0, which is undefined order.</description>
