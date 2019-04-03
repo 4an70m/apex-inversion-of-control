@@ -90,12 +90,12 @@ public with sharing class HandlerExecutionPool {
          *
          * @return List of instances of active Handlers
          * @see Handler
-         * @see HandlerMetadata
+         * @see MetadataHandler
          */
         private List<Handler> getActiveHandlers() {
-            HandlerMetadata handlerMetadata = new HandlerMetadata(this.typeName);
+            MetadataHandler metadataHandler = new MetadataHandler(this.typeName);
             List<Handler> handlers = new List<Handler>();
-            for (Trigger_Dependency__mdt handlerMeta : handlerMetadata.getMeta()) {
+            for (Trigger_Dependency__mdt handlerMeta : metadataHandler.getMeta()) {
                 Type handlerType = Type.forName(handlerMeta.NamespacePrefix, handlerMeta.Class_Name__c);
                 if (handlerType == null) {
                     this.logNoApplicableClassError(handlerMeta);
@@ -169,11 +169,11 @@ public with sharing class HandlerExecutionPool {
      * @author Oleksii.Fisher
      * @version 1.0
      */
-    private class HandlerMetadata {
+    private class MetadataHandler {
 
         private List<Trigger_Dependency__mdt> handlersMeta;
 
-        public HandlerMetadata(Type typeName) {
+        public MetadataHandler(Type typeName) {
             this.handlersMeta = this.readHandlersMetadata(typeName);
         }
 
