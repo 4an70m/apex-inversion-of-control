@@ -58,7 +58,7 @@ public with sharing class HandlerExecutionPool {
      * @version 1.0
      */
     public class HandlerExecutor {
-        
+
         private Type typeName;
         private final List<Handler> activeHandlers;
 
@@ -75,7 +75,7 @@ public with sharing class HandlerExecutionPool {
          * @see Trigger_Dependency__mdt
          */
         public void execute() {
-            for(Handler handler : this.activeHandlers) {
+            for (Handler handler : this.activeHandlers) {
                 this.executeHandler(handler);
             }
         }
@@ -184,12 +184,12 @@ public with sharing class HandlerExecutionPool {
         private List<Trigger_Dependency__mdt> readHandlersMetadata(Type typeName) {
             return [
                     SELECT Id
-                        , Class_Name__c
-                        , Object_Name__c
-                        , NamespacePrefix
+                            , Class_Name__c
+                            , Object_Name__c
+                            , NamespacePrefix
                     FROM Trigger_Dependency__mdt
                     WHERE Is_Active__c = true
-                        AND Object_Name__c = :typeName.toString()
+                    AND Object_Name__c = :typeName.toString()
                     ORDER BY Execution_Order__c ASC
             ];
         }
