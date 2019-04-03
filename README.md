@@ -21,9 +21,9 @@ trigger AccountTrigger on Account (before insert) {
 ```
 
 And configure custom metadata record to use your class for specified Object type:
-__Object Name__: Account
-__Class Name__: AccountHandler
-__Is Active__: true
+- __Object Name__: Account
+- __Class Name__: AccountHandler
+- __Is Active__: true
 
 ## Handler
 
@@ -71,7 +71,7 @@ Fiels, pulled from Trigger static variables:
 - TriggerOperation operationType
  
 ## HandlerExecutionPool
-Class instantiates of inner class - HandlerExecutors and stores them in a static pool. The class is a singleton.
+Class instantiates an inner class - HandlerExecutors and stores them in a static pool. The class is a singleton.
 Public static method __getInstance()__ which retrieves a singleton instance of HandlerExecutionPool;
 Public method __getHandler(System.Type)__ retrieves (or creates) a HandlerExecutor for specific System.Type.
 
