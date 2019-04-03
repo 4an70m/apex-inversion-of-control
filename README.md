@@ -61,7 +61,7 @@ Debug| Executing: BEFORE_INSERT
 
 ## TriggerContext
 Class encapsulates all trigger-related static variables and makes them instance. Allows to have and abstraction layer between what handler gets from Trigger as well as allows creating mocks in unit tests.
-Fiels, pulled from Trigger static variables:
+Fields, pulled from Trigger static variables:
 
 - List<SObject> newList
 - Map<Id, SObject> newMap
