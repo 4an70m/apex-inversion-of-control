@@ -64,7 +64,6 @@ public with sharing class HandlerExecutionPool {
 
         private HandlerExecutor(Type typeName) {
             this.typeName = typeName;
-            this.activeHandlers = this.getActiveHandlers();
         }
 
         /**
@@ -75,6 +74,7 @@ public with sharing class HandlerExecutionPool {
          * @see Trigger_Dependency__mdt
          */
         public void execute() {
+            this.activeHandlers = this.getActiveHandlers();
             for (Handler handler : this.activeHandlers) {
                 this.executeHandler(handler);
             }
@@ -189,7 +189,7 @@ public with sharing class HandlerExecutionPool {
                             , NamespacePrefix
                     FROM Trigger_Dependency__mdt
                     WHERE Is_Active__c = true
-                    AND Object_Name__c = :typeName.toString()
+                    AND Object_Name__r.QualifiedAPIName = :typeName.toString()
                     ORDER BY Execution_Order__c ASC
             ];
         }
