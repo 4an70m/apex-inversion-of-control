@@ -40,8 +40,20 @@
         <referenceTo>EntityDefinition</referenceTo>
         <relationshipLabel>Trigger_Dependency</relationshipLabel>
         <relationshipName>Trigger_Dependency</relationshipName>
-        <required>true</required>
+        <required>false</required>
         <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Object_API_Name__c</fullName>
+        <description>For objects, which are currently not supported in entity definition</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>For objects, which are currently not supported in entity definition</inlineHelpText>
+        <label>Other Object API Name</label>
+        <length>60</length>
+        <required>false</required>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -55,6 +67,26 @@
         <visibleLines>3</visibleLines>
     </fields>
     <label>Trigger Dependency</label>
+    <listViews>
+        <fullName>More_Info</fullName>
+        <columns>MasterLabel</columns>
+        <columns>DeveloperName</columns>
+        <columns>Object_Name__c</columns>
+        <columns>Other_Object_API_Name__c</columns>
+        <columns>Class_Name__c</columns>
+        <columns>Is_Active__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>MoreInfo</label>
+        <language>en_US</language>
+    </listViews>
     <pluralLabel>Trigger Dependency</pluralLabel>
+    <validationRules>
+        <fullName>Either_Object_name_or_Other_Object_Name</fullName>
+        <active>true</active>
+        <description>Only one of the object names must be populated</description>
+        <errorConditionFormula>AND(ISBLANK(Object_Name__c), ISBLANK(Other_Object_API_Name__c))
+            || AND(!ISBLANK(Object_Name__c) &amp;&amp; !ISBLANK(Other_Object_API_Name__c))</errorConditionFormula>
+        <errorMessage>One of the Object names must be populated</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

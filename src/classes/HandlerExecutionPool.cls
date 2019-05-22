@@ -60,7 +60,7 @@ public with sharing class HandlerExecutionPool {
     public class HandlerExecutor {
 
         private Type typeName;
-        private final List<Handler> activeHandlers;
+        private List<Handler> activeHandlers;
 
         private HandlerExecutor(Type typeName) {
             this.typeName = typeName;
@@ -162,7 +162,7 @@ public with sharing class HandlerExecutionPool {
      * <p><b>HandlerMetadata</b></p>
      * Class reads the metadata from the Database and
      * populates it in an array.
-     * <p>The metadata is filtered by <b>Object_Name__c<b/> field,
+     * <p>The metadata is filtered by <b>Object_Name__r.QualifiedAPIName<b/> field,
      * <b>Is_Active__c<b/> field and is ordered by <b>Execution_Order__c<b/> field.
      *
      * @see Trigger_Dependency__mdt
@@ -182,16 +182,25 @@ public with sharing class HandlerExecutionPool {
         }
 
         private List<Trigger_Dependency__mdt> readHandlersMetadata(Type typeName) {
-            return [
+            List<Trigger_Dependency__mdt> triggerDependencies = [
                     SELECT Id
-                            , Class_Name__c
-                            , Object_Name__c
                             , NamespacePrefix
+                            , Class_Name__c
+                            , Other_Object_API_Name__c
+                            , Object_Name__r.QualifiedAPIName
                     FROM Trigger_Dependency__mdt
                     WHERE Is_Active__c = true
-                    AND Object_Name__r.QualifiedAPIName = :typeName.toString()
                     ORDER BY Execution_Order__c ASC
             ];
+            List<Trigger_Dependency__mdt> result = new List<Trigger_Dependency__mdt>();
+            String typeNameString = typeName.toString();
+            for (Trigger_Dependency__mdt dependency : triggerDependencies) {
+                if (dependency.Object_Name__r.QualifiedAPIName == typeNameString
+                        || dependency.Other_Object_API_Name__c == typeNameString) {
+                    result.add(dependency);
+                }
+            }
+            return result;
         }
     }
 }
